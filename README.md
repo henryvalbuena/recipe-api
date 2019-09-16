@@ -1,4 +1,4 @@
-# Recipe-api
+# Recipe-api (under development)
 
 [![Build Status](https://travis-ci.org/henryvalbuena/recipe-api.svg?branch=master)](https://travis-ci.org/henryvalbuena/recipe-api)
 
@@ -6,20 +6,17 @@ Recipes API using TDD, Django, Django Rest Framework, Docker, and Postgres
 
 # Project Template Specifics
 
-## Setup Reference
-https://docs.docker.com/compose/django/
-
 ## Commands to Build and Run
 
 > Notice that project_name matches the service name used in *docker-compose.yaml*
 
 ### Build Project
 ```
-docker-compose run [project_name] django-admin startproject [project-name] .
+docker-compose run --rm [project_name] django-admin startproject [project-name] .
 ```
 ### Build Apps
 ```
-docker-compose run [project_name] django-admin startapp [app_name]
+docker-compose run --rm [project_name] django-admin startapp [app_name]
 ```
 
 ### Run compose
@@ -29,12 +26,17 @@ docker-compose up
 
 ### Stop compose
 ```
-docker-compose down
+docker-compose stop
 ```
 
 ### Build before start
 ```
 docker-compose up --build
+```
+
+### Run tests
+```
+docker-compose run app sh -c "./manage.py test && flake8"
 ```
 
 # Readme Template
